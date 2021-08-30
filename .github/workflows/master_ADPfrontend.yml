@@ -34,4 +34,4 @@ jobs:
         app-name: 'ADPfrontend'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_08edce05e7fb49d6b901cf745fd137c0 }}
-        package: .
+        package: dist/
