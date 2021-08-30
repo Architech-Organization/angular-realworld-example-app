@@ -28,7 +28,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'ADP-Frontend-dev'
+        app-name: 'frontend-app-service-fgarst7565das232132'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_9de61ca6bef24013b33278f25868349f }}
-        package: dist/
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b8088d0d73b14804bb25af6a370641d7 }}
+        package: .
