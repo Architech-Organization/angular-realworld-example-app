@@ -1,8 +1,6 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy
-
 on:
   push:
     branches:
@@ -10,7 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
+    name: Build and deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +22,8 @@ jobs:
 
     - name: npm install, build, and test
       run: |
+        # Build and test the project, then
+        # deploy to Azure Web App.
         npm install
         npm run build --if-present
         #npm run test --if-present
@@ -31,7 +32,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'ADPfrontend'
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_08edce05e7fb49d6b901cf745fd137c0 }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: dist/
