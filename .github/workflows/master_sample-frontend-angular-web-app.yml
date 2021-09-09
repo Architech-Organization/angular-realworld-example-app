@@ -53,4 +53,4 @@ jobs:
         app-name: 'sample-frontend-angular-web-app'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_473b286d8faa4b62babe822b00c5e93d }}
-        package: .
+        package: dist/
