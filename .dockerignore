@@ -1,0 +1,18 @@
+# Hidden files and folders
+.*
+.*/
+
+# Test folder
+e2e/
+
+# Dependencies and build folders
+node_modules/
+dist/
+
+# Non-build related files
+README.md
+logo.png
+karm.conf.js
+protractor.conf.js
+proxy.conf.js
+
