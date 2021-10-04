@@ -7,7 +7,6 @@ e2e/
 
 # Dependencies and build folders
 node_modules/
-dist/
 
 # Non-build related files
 README.md
