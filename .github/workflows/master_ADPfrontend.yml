@@ -4,7 +4,7 @@
 on:
   push:
     branches:
-      - master
+      - test-deploy
   workflow_dispatch:
 
 jobs:
@@ -35,4 +35,4 @@ jobs:
         app-name: 'test-app-v1'
         #slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: dist/
+        #package: dist/
