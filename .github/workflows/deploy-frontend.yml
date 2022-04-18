@@ -4,7 +4,7 @@
 on:
   push:
     branches:
-      - master
+      - rach-test
   workflow_dispatch:
 
 jobs:
@@ -33,6 +33,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'sample-frontend-angular-web-app'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: dist/
