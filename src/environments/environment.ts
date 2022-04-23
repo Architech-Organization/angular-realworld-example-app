@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: "https://springboot-essentials-demo.azurewebsites.net/api",
+  api_url: "https://springboot-essentials-demo.azurewebsites.net/",
 };
