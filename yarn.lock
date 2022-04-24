@@ -130,9 +130,7 @@
     tslib "^2.2.0"
 
 "@angular/cli@^12.1.0":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-12.1.0.tgz#7373e74c9642c5eca19e4212a4fe87a85d62d80a"
-  integrity sha512-3xvweF9oiR1X9KlXIFPGQtylctqPi9t7SjI/8M2z/qRP4GkMu2CiScNysWFMdJsNsrRvLGQdtAbJFBWfW1vmkA==
+  version: "12.1.1"
   dependencies:
     "@angular-devkit/architect" "0.1201.0"
     "@angular-devkit/core" "12.1.0"
