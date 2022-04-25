@@ -31,6 +31,14 @@ In case `App service redeployed`, update the following files:
   Match the `app-name` with the name of the `App Service` on `Microsoft Azure`
 
 - `src/environments/environment.prod.ts`:
+
+  ```js
+  export const environment = {
+    production: true,
+    api_url: "https://springboot-essentials-demo.azurewebsites.net/",
+  };
+  ```
+
 - `src/environments/environment.ts`:
 
   ```js
