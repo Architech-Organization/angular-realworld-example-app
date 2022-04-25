@@ -40,9 +40,9 @@ In case `App service redeployed`, update the following files:
   };
   ```
 
-  Use the Backend URL that found on `Azure Backend App Service`
-  For Java Springboot backend, use `host_address`
-  For Node backend, use `host_address/api`
+  - Use the Backend URL that found on `Azure Backend App Service`
+  - For Java Springboot backend, use `host_address`
+  - For Node backend, use `host_address/api`
 
 # ![Angular Example App](logo.png)
 
