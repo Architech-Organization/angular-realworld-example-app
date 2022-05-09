@@ -12,9 +12,9 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
-// import { environment } from '../environments/environment';
+import { environment } from '../environments/environment';
 
-const api_url = process.env.ANGULAR_APP_BACKEND_URL;
+// const api_url = process.env.ANGULAR_APP_BACKEND_URL;
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -25,7 +25,7 @@ const api_url = process.env.ANGULAR_APP_BACKEND_URL;
     HomeModule,
     AuthModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js')
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
