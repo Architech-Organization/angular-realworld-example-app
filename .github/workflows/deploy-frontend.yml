@@ -4,13 +4,19 @@
 on:
   push:
     branches:
-      - '*'
+      - 'master'
+      - 'gh-actions-env'
   workflow_dispatch:
+
+env:
+  SAMPLE_APP_BACKEND_URL: 'https://test-backend-springboot-app.azurewebsites.net'
+  NODE_VERSION: '14.x'
 
 jobs:
   build-and-deploy:
     name: Build and deploy
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
     - uses: actions/checkout@v2
@@ -18,20 +24,22 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '14.x'
+        node-version: ${{ env.NODE_VERSION }}
 
-    - name: npm install, build, and test
+    - name: Build Sample App
       run: |
+        env | grep '^ANGULAR_APP' > .env
         # Build and test the project, then
         # deploy to Azure Web App.
         npm install
         npm run build --if-present
-        #npm run test --if-present
+      env:
+        ANGULAR_APP_BACKEND_URL: ${{ env.SAMPLE_APP_BACKEND_URL }}
 
     - name: 'Deploy to Azure Web App'
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
         app-name: angular-essentials-demo
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_TEST }}
         package: dist/
