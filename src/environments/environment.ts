@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    api_url: `${process.env.ANGULAR_APP_BACKEND_URL}`,
+    api_url: "https://test-backend-springboot-app.azurewebsites.net",
 };
