@@ -5,7 +5,7 @@ import { Observable ,  throwError } from 'rxjs';
 
 import { catchError } from 'rxjs/operators';
 
-const api_url = process.env.ANGULAR_APP_BACKEND_URL
+const api_url = process.env.ANGULAR_APP_BACKEND_URL;
 
 @Injectable({
   providedIn: 'root'
