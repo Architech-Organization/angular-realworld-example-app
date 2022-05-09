@@ -29,7 +29,6 @@ jobs:
 
     - name: Build Sample App
       run: |
-        env | grep '^ANGULAR_APP' > .env
         # Build and test the project, then
         # deploy to Azure Web App.
         npm install
