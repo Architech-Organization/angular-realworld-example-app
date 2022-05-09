@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  SAMPLE_APP_BACKEND_URL: 'https://test-backend-springboot-app.azurewebsites.net'
+  API_URL: 'https://test-backend-springboot-app.azurewebsites.net/'
   NODE_VERSION: '14.x'
 
 jobs:
@@ -34,8 +34,6 @@ jobs:
         # deploy to Azure Web App.
         npm install
         npm run build --if-present
-      env:
-        ANGULAR_APP_BACKEND_URL: ${{ env.SAMPLE_APP_BACKEND_URL }}
 
     - name: 'Deploy to Azure Web App'
       id: deploy-to-webapp
