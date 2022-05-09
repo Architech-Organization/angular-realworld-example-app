@@ -8,6 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+const test_url = `{process.env.API_URL}`
+console.log("This is the api url:", test_url);
 // const api_url = process.env.ANGULAR_APP_BACKEND_URL;
 
 const bootstrapPromise =  platformBrowserDynamic().bootstrapModule(AppModule);
