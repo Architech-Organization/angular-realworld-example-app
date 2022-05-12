@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: "https://adp-app-api-qa.azurewebsites.net/",
+  api_url: "*",
 };
