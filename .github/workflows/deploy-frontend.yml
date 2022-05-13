@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   
 env:
-  AZURE_WEBAPP_NAME: adp-app-web-qa 
+  AZURE_WEBAPP_NAME: adp-app-web-frontend-qa 
   AZURE_WEBAPP_PACKAGE_PATH: 'dist/'   
   NODE_VERSION: '14.x'
   
