@@ -5,7 +5,7 @@ name: Angular CI
 on:
   push:
     branches:
-      - 'master'
+      - 'test-deploy'
   workflow_dispatch:
   
 env:
