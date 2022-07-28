@@ -6,6 +6,9 @@ on:
   push:
     branches:
       - 'rach-test'
+  pull_request:
+    branches:
+      - '**'
   workflow_dispatch:
   
 env:
