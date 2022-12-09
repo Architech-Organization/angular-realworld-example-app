@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  api_url: "https://adp-app-api-backend-qa.azurewebsites.net",
+  api_url: "https://gptagapp.azurewebsites.net",
 };
