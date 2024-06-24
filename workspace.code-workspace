@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../Clients/ADP/terraform-azurerm-postgresql-flexible-server"
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"whitesource.whitesource-advise"
+		]
+	}
+}

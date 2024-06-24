@@ -1,0 +1,67 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+on:
+  push:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js version
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+
+    - name: npm install, build, and test
+      run: |
+        # Build and test the project, then
+        # deploy to Azure Web App.
+        npm install
+        npm run build --if-present
+        #npm run test --if-present
+    
+    - name: WhiteSource Unified Agent Scan
+      env:
+        WS_APIKEY: ${{secrets.APIKEY}}
+        WS_USERKEY: ${{secrets.USERKEY}}
+        WS_WSS_URL: https://app.whitesourcesoftware.com/agent
+        WS_PRODUCTNAME: ${{github.event.repository.name}}
+        WS_PROJECTNAME: ${{github.ref}}
+        WS_FILESYSTEMSCAN: false
+        WS_GENERATEPROJECTDETAILSJSON: true
+        WS_UPDATEINVENTORY: true #(defaults to true)
+        WS_enableImpactAnalysis: true
+        WS_resolveAllDependencies: false
+      run: |
+        sudo apt-get install jq curl
+        echo Downloading WhiteSource Unified Agent
+        curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
+        if [[ "$(curl -sL https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar.sha256)" != "$(sha256sum wss-unified-agent.jar)" ]] ; then
+          echo "Integrity Check Failed"
+        else
+          echo "Integrity Check Passed"
+          echo Starting WhiteSource Scan
+          java -jar wss-unified-agent.jar
+        fi
+    - name: Archive Whitesource results
+      uses: actions/upload-artifact@v3
+      with:
+        name: Whitesource reports
+        path: ./whitesource
+
+
+    # - name: 'Deploy to Azure Web App'
+    #   id: deploy-to-webapp
+    #   uses: azure/webapps-deploy@v2
+    #   with:
+    #     app-name: angular-essentials-demo
+    #     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+    #     package: dist/
